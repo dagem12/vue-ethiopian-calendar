@@ -1,0 +1,9 @@
+node_modules/
+dist/
+*.local
+*.log
+*.md
+*.yml
+.editorconfig
+.eslintrc.js
+.gitignore
