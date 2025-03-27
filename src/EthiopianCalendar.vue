@@ -348,7 +348,7 @@
   };
   </script>
   
-  <style scoped>
+  <style >
 /* :root {
   --primary-color: #4a86e8;
   --hover-color: #356dca;

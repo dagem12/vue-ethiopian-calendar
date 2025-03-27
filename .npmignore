@@ -7,3 +7,4 @@ dist/
 .editorconfig
 .eslintrc.js
 .gitignore
+.npmignore

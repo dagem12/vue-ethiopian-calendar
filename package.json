@@ -1,51 +1,45 @@
 {
     "name": "vue-ethiopian-calendar",
-    "version": "1.0.0",
+    "version": "1.0.6",
     "description": "A Vue 2 component for Ethiopian (Amete Alem) calendar with Gregorian date conversion",
-    "main": "dist/EthiopianCalendar.common.js",
-    "module": "dist/EthiopianCalendar.esm.js",
-    "unpkg": "dist/EthiopianCalendar.umd.min.js",
-    "files": [
-      "dist/*",
-      "src/*"
-    ],
+"main": "dist/EthiopianCalendar.umd.js",
+  "module": "dist/EthiopianCalendar.es.js",
+  "files": [
+    "dist/*"
+  ],
     "scripts": {
-      "build": "vue-cli-service build --target lib --name EthiopianCalendar ./src/index.js",
-      "prepublishOnly": "npm run build",
-      "lint": "vue-cli-service lint"
+        "build": "vue-cli-service build --target lib --name EthiopianCalendar src/EthiopianCalendar.vue",
+        "serve": "vue-cli-service serve",
+        "prepublishOnly": "npm run build"
     },
     "keywords": [
-      "ethiopian",
-      "calendar",
-      "amete alem",
-      "vue",
-      "vue2",
-      "date-picker",
-      "gregorian-conversion"
+        "ethiopian-calendar",
+        "vue-ethiopian-calendar",
+        "vue-ethiopian",
+        "ethiopian",
+        "calendar",
+        "amete alem",
+        "vue",
+        "vue2",
+        "date-picker",
+        "gregorian-conversion"
     ],
     "author": "Dagem Getachew Asefa <dagem.getachew@stellargeneraltrading.com>",
     "license": "MIT",
     "repository": {
-      "type": "git",
-      "url": "https://github.com/dagemga4/vue-ethiopian-calendar.git"
+        "type": "git",
+        "url": "https://github.com/dagem12/vue-ethiopian-calendar.git"
     },
     "bugs": {
-      "url": "https://github.com/dagemga4/vue-ethiopian-calendar/issues"
+        "url": "https://github.com/dagem12/vue-ethiopian-calendar/issues"
     },
-    "homepage": "https://github.com/dagemga4/vue-ethiopian-calendar#readme",
+    "homepage": "https://github.com/dagem12/vue-ethiopian-calendar#readme",
     "peerDependencies": {
-      "vue": "^2.6.14",
-      "vue-template-compiler": "^2.6.14"
+       "vue": "^2.6.0"
     },
     "devDependencies": {
-      "@vue/cli-plugin-babel": "^5.0.8",
-      "@vue/cli-plugin-eslint": "^5.0.8",
-      "@vue/cli-service": "^5.0.8",
-      "babel-eslint": "^10.1.0",
-      "eslint": "^7.32.0",
-      "eslint-plugin-vue": "^8.0.3",
-      "sass": "^1.32.13",
-      "sass-loader": "^12.0.0",
-      "vue-template-compiler": "^2.6.14"
+        "@vue/cli-service": "^4.5.19",
+        "vue": "^2.6.14",
+        "vue-template-compiler": "^2.6.14"
     }
-  }
+}

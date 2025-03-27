@@ -12,31 +12,76 @@ yarn add vue-ethiopian-calendar
 
 ## Basic Usage
 
+### 🌍 Global Registration (Recommended for app-wide usage)
+
+Register the component globally in your main application file:
+
+```javascript
+// main.js
+import Vue from 'vue';
+import EthiopianCalendar from 'vue-ethiopian-calendar';
+import 'vue-ethiopian-calendar/dist/EthiopianCalendar.css';
+
+// Register globally - available in all components
+Vue.component('EthiopianCalendar', EthiopianCalendar);
+
+new Vue({
+  render: h => h(App),
+}).$mount('#app');
+```
+
+Now you can use it anywhere in your app without importing:
 ```vue
 <template>
-  <EthiopianCalendar
-    @date-selected="handleDateSelection"
-    language="en"
-  />
+  <EthiopianCalendar @date-selected="handleDateChange" language="am"/>
+</template>
+```
+
+### 🎯 Specific Component Usage 
+
+Import directly in your Vue component:
+
+```vue
+<template>
+  <div class="date-picker">
+    <h3>Select Ethiopian Date</h3>
+    <EthiopianCalendar 
+      language="am"
+      @date-selected="logDate"
+    />
+  </div>
 </template>
 
 <script>
-import EthiopianCalendar from 'vue-ethiopian-calendar';
+import EthiopianCalendar from 'ethiopian-calendar-vue2';
+import 'ethiopian-calendar-vue2/dist/EthiopianCalendar.css';
 
 export default {
+  name: 'MyDatePicker',
   components: {
     EthiopianCalendar
   },
   methods: {
-    handleDateSelection({ ethiopianDate, gregorianDate }) {
-      console.log("Ethiopian Date:", ethiopianDate);
-      console.log("Gregorian Date:", gregorianDate);
-      this.selectedDate = ethiopianDate; // Store selected date
+    logDate({ ethiopian, gregorian }) {
+      console.log('Ethiopian:', ethiopian);
+      console.log('Gregorian:', gregorian);
     }
   }
-}
+};
 </script>
+
+<style>
+.date-picker {
+  max-width: 400px;
+  margin: 0 auto;
+}
+</style>
 ```
+
+
+
+
+
 
 ## Available Props
 
