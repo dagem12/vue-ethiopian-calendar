@@ -78,11 +78,6 @@ export default {
 </style>
 ```
 
-
-
-
-
-
 ## Available Props
 
 | Prop            | Type   | Default    | Description |
