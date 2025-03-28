@@ -83,6 +83,8 @@ export default {
 | Prop            | Type   | Default    | Description |
 |---------------|--------|------------|-------------|
 | `language`       | String | "am"       | Calendar language (`"am"` for Amharic or `"en"` for English) |
+| `scope`          | String | `"yyyy-mm-dd"` | Primary theme color |
+| `value`          | String/Object | `null` | 	Initial date value (e.g. "2014-07-05" or {year: 2014, month: 7, day: 5}) |
 | `primaryColor`   | String | `"#ffffff"` | Primary theme color |
 | `hoverColor`     | String | `"#ffe08a"` | Hover color |
 | `todayColor`     | String | `"#1fe08a"` | Today indicator color |
