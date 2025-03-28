@@ -62,9 +62,10 @@ export default {
     EthiopianCalendar
   },
   methods: {
-    logDate({ ethiopian, gregorian }) {
+    logDate({ ethiopianDate, gregorianDate,formatted }) {
       console.log('Ethiopian:', ethiopian);
       console.log('Gregorian:', gregorian);
+      console.log('formatted:', formatted);
     }
   }
 };
@@ -96,33 +97,25 @@ export default {
 | `weekdayColor`   | String | `"#718096"` | Weekday text color |
 | `fontStack`      | String | System fonts | Custom font stack |
 
+
 ## Events
 
-### `date-selected`
-
-Emitted when a date is selected. Returns an object with:
-
-```javascript
-{
-  ethiopianDate: {
-    year: Number,  // Ethiopian year
-    month: Number, // Ethiopian month (1-13)
-    day: Number    // Ethiopian day
-  },
-  gregorianDate: {
-    year: Number,  // Gregorian year
-    month: Number, // Gregorian month (1-12)
-    day: Number    // Gregorian day
-  }
-}
-```
-
+| Event | Description | Payload |
+|-------|-------------|---------|
+| `date-selected` | Emitted when date is selected | `{ ethiopianDate: {year, month, day}, gregorianDate: {year, month, day}, formatted: string }` |
+| `input` | Emitted for v-model support | Current selected date |
+| `month-changed` | Emitted when month changes | `{ year: number, month: number }` |
+| `year-changed` | Emitted when year changes | `number` (year) |
 ## Example with All Props
+
+
 
 ```vue
 <EthiopianCalendar
   @date-selected="handleDateSelection"
   language="am"
+  scope="yyyy-mm"
+  v-model="selectedDate"
   primaryColor="#4a86e8"
   hoverColor="#356dca"
   todayColor="#ffe08a"
