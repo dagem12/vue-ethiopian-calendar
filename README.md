@@ -48,19 +48,25 @@ Import directly in your Vue component:
     <EthiopianCalendar 
       language="am"
       @date-selected="logDate"
+      scope="yyyy-mm-dd"
+      v-model="selectedDate"
     />
   </div>
 </template>
 
 <script>
-import EthiopianCalendar from 'ethiopian-calendar-vue2';
-import 'ethiopian-calendar-vue2/dist/EthiopianCalendar.css';
+import EthiopianCalendar from 'vue-ethiopian-calendar';
+import 'vue-ethiopian-calendar/dist/EthiopianCalendar.css';
 
 export default {
   name: 'MyDatePicker',
   components: {
     EthiopianCalendar
   },
+   data() {
+    return {
+   selectedDate: {year: 2014, month: 7,day: 1}
+    }},
   methods: {
     logDate({ ethiopianDate, gregorianDate,formatted }) {
       console.log('Ethiopian:', ethiopian);
