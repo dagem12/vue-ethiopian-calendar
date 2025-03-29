@@ -131,6 +131,7 @@ export default {
         const hasDay = value.day !== undefined
         return hasYear || hasMonth || hasDay
       }
+      return false
         // return (
         //   typeof value === 'object' &&
         //   value.year &&
@@ -403,49 +404,60 @@ export default {
   },
 
   emitSelectedDate() {
-    let ethiopianDate;
-    switch(this.scope) {
-      case 'yyyy':
-        ethiopianDate = {
-          year: this.selectedYear,
-          month: 1, // Default to first month
-          day: 1    // Default to first day
-        };
-        break;
-      case 'yyyy-mm':
-        ethiopianDate = {
-          year: this.selectedYear,
-          month: this.selectedMonth,
-          day: 1   // Default to first day
-        };
-        break;
-      default:
-        ethiopianDate = {
-          year: this.selectedYear,
-          month: this.selectedMonth,
-          day: this.selectedDay
-        };
-    }
+  // Get default values from the component's data
+  const defaultDate = this.defaultDate || {
+    year: this.selectedYear,
+    month: 1,
+    day: 1
+  };
 
-    const gregDate = this.ethiopianToGregorian(
-      ethiopianDate.year,
-      ethiopianDate.month,
-      ethiopianDate.day
-    );
-    
-    const gregorianDate = {
-      year: gregDate.getFullYear(),
-      month: gregDate.getMonth() + 1, // JS months are 0-based
-      day: gregDate.getDate()
-    };
+  let ethiopianDate;
+  switch(this.scope) {
+    case 'yyyy':
+      ethiopianDate = {
+        year: this.selectedYear || defaultDate.year,
+        month: 1, // Default to first month
+        day: 1    // Default to first day
+      };
+      break;
+    case 'yyyy-mm':
+      ethiopianDate = {
+        year: this.selectedYear || defaultDate.year,
+        month: this.selectedMonth || defaultDate.month,
+        day: 1   // Default to first day
+      };
+      break;
+    default:
+      ethiopianDate = {
+        year: this.selectedYear || defaultDate.year,
+        month: this.selectedMonth || defaultDate.month,
+        day: this.selectedDay || defaultDate.day
+      };
+  }
 
-    this.$emit("date-selected", {
-      ethiopianDate,
-      gregorianDate,
-      formatted: this.formatDateString(ethiopianDate)
-    });
-  },
+  // Ensure we have valid values for all fields
+  ethiopianDate.year = ethiopianDate.year || defaultDate.year;
+  ethiopianDate.month = ethiopianDate.month || defaultDate.month;
+  ethiopianDate.day = ethiopianDate.day || defaultDate.day;
 
+  const gregDate = this.ethiopianToGregorian(
+    ethiopianDate.year,
+    ethiopianDate.month,
+    ethiopianDate.day
+  );
+  
+  const gregorianDate = {
+    year: gregDate.getFullYear(),
+    month: gregDate.getMonth() + 1, // JS months are 0-based
+    day: gregDate.getDate()
+  };
+
+  this.$emit("date-selected", {
+    ethiopianDate,
+    gregorianDate,
+    formatted: this.formatDateString(ethiopianDate)
+  });
+},
   formatDateString(date) {
     const year = date.year;
     const month = date.month.toString().padStart(2, '0');
@@ -458,7 +470,8 @@ export default {
     }
   },
 
-    prevMonth() {
+    prevMonth(event) {
+      event.preventDefault(); // Prevent default action of the button
       this.selectedDay = null; 
       if (this.selectedMonth === 1) {
         this.selectedMonth = 13;
@@ -469,7 +482,8 @@ export default {
      
     },
     
-    nextMonth() {
+    nextMonth(event) {
+      event.preventDefault(); // Prevent default action of the button
       this.selectedDay = null; 
       if (this.selectedMonth === 13) {
         this.selectedMonth = 1;
@@ -480,7 +494,8 @@ export default {
        
     },
     
-    prevYear() {
+    prevYear(event) {
+      event.preventDefault(); // Prevent default action of the button
       this.selectedDay = null;
       if (this.scope === 'yyyy') {
         this.selectedYear -= 12;
@@ -493,7 +508,8 @@ export default {
     },
     
     
-    nextYear() {
+    nextYear(event) {
+      event.preventDefault(); // Prevent default action of the button
       this.selectedDay = null;
       if (this.scope === 'yyyy') {
         this.selectedYear += 12;
