@@ -1,4 +1,9 @@
 # Ethiopian Calendar Vue Component
+![Amharic Version Preview](https://raw.githubusercontent.com/dagem12/vue-ethiopian-calendar/main/screenshots/am-vue-ethiopian-calendar.jpg)
+*Amharic language version*
+
+![English Version Preview](https://raw.githubusercontent.com/dagem12/vue-ethiopian-calendar/main/screenshots/en-vue-ethiopian-calendar.png)
+*English language version*
 
 A Vue 2 component for displaying and selecting dates in the Ethiopian calendar. Supports both Amharic and English languages with customizable styling.
 
