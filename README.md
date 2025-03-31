@@ -95,7 +95,7 @@ export default {
 | Prop            | Type   | Default    | Description |
 |---------------|--------|------------|-------------|
 | `language`       | String | "am"       | Calendar language (`"am"` for Amharic or `"en"` for English) |
-| `scope`          | String | `"yyyy-mm-dd"` | Primary theme color |
+| `scope`          | String | `"yyyy-mm-dd"` | Selection scope ("yyyy", "yyyy-mm", or "yyyy-mm-dd") |
 | `value`          | String/Object | `null` | 	Initial date value (e.g. "2014-07-05" or {year: 2014, month: 7, day: 5}) |
 | `primaryColor`   | String | `"#ffffff"` | Primary theme color |
 | `hoverColor`     | String | `"#ffe08a"` | Hover color |
