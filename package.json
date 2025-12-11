@@ -1,6 +1,6 @@
 {
     "name": "vue-ethiopian-calendar",
-    "version": "1.0.9",
+    "version": "1.1.0",
     "description": "A Vue 2 component for Ethiopian (Amete Alem) calendar with Gregorian date conversion",
 "main": "dist/EthiopianCalendar.umd.js",
   "module": "dist/EthiopianCalendar.es.js",

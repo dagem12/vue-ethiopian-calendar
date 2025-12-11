@@ -150,7 +150,7 @@ export default {
 
 - All colors can be customized via props.
 - Responsive design for mobile devices.
-- Clean, modern UI with subtle animations.
+
 
 ## TypeScript Support
 
