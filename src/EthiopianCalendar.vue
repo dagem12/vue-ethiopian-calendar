@@ -265,7 +265,7 @@ export default {
       }
 
       // If Ethiopian year is leap year, paguemain has six days
-      if (eYear - 1 % 4 === 3) {
+      if ((eYear - 1 )% 4 === 3) {
         until += 1;
       }
 
